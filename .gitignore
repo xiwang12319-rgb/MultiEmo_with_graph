@@ -1,9 +1,6 @@
-.idea/
-__pycache__/
-*.pyc
+Data/
 *.pkl
 *.pt
 *.ckpt
-Data/
 logs/
 checkpoints/
