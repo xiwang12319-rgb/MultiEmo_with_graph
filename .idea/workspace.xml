@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a94912f7-a47b-4f34-aa71-fa8eaa801e24" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +49,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SHELLCHECK.PATH": "C:\\Users\\18263\\AppData\\Roaming\\JetBrains\\PyCharm2025.3\\plugins\\Shell Script\\shellcheck.exe",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "正在合并 main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/PycharmProject/MultiEMO-main",
     "node.js.detected.package.eslint": "true",
@@ -100,7 +98,7 @@
       <workItem from="1774848145398" duration="676000" />
       <workItem from="1774849547581" duration="4564000" />
       <workItem from="1774941317816" duration="1306000" />
-      <workItem from="1774948222096" duration="1059000" />
+      <workItem from="1774948222096" duration="1566000" />
     </task>
     <servers />
   </component>
