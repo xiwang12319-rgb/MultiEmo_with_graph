@@ -48,7 +48,7 @@ def run_ablation(name, graph_input, speaker_ids, temporal, same_speaker):
 
 def main():
     torch.manual_seed(0)
-    device = torch.device("cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     N = 6
     D = 8

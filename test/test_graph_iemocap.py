@@ -27,7 +27,7 @@ def get_args():
 def main():
     args = get_args()
     torch.manual_seed(0)
-    device = torch.device('cpu')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     N = 5
     D = 12

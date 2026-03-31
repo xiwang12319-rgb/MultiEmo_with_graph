@@ -10,7 +10,7 @@ from Model.MultiEMO_Model import MultiEMO
 
 def main():
     torch.manual_seed(0)
-    device = torch.device("cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     seq_len = 6
     batch = 2
