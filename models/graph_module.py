@@ -4,8 +4,9 @@ import torch.nn.functional as F
 
 
 class SpeakerGraphBuilder(nn.Module):
-    def __init__(self):
+    def __init__(self, graph_type='both'):
         super().__init__()
+        self.graph_type = graph_type
 
     def forward(self, features, speaker_ids):
         # features: [N, D]
@@ -14,13 +15,20 @@ class SpeakerGraphBuilder(nn.Module):
         device = features.device
 
         speaker_ids = speaker_ids.long()
-        same_speaker = (speaker_ids.unsqueeze(0) == speaker_ids.unsqueeze(1)).float()
-        idx = torch.arange(N, device=device)
-        temporal = (idx.unsqueeze(0) - idx.unsqueeze(1)).abs().eq(1).float()
+        adj = torch.zeros(N, N, device=device)
 
-        adj = same_speaker + temporal
-        print("Graph nodes:", features.shape[0])
-        print("Edge density:", adj.sum().item() / (N * N))
+        if self.graph_type in ('speaker', 'both'):
+            same_speaker = (speaker_ids.unsqueeze(0) == speaker_ids.unsqueeze(1)).float()
+            adj = adj + same_speaker
+
+        if self.graph_type in ('temporal', 'both'):
+            idx = torch.arange(N, device=device)
+            temporal = (idx.unsqueeze(0) - idx.unsqueeze(1)).abs().eq(1).float()
+            adj = adj + temporal
+
+        # Fallback to identity to avoid zero-degree graph if an unsupported type is passed in.
+        if torch.count_nonzero(adj) == 0:
+            adj = torch.eye(N, device=device)
 
         degree = adj.sum(dim=1).clamp(min=1.0)
         deg_inv_sqrt = degree.pow(-0.5)
